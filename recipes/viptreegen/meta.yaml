@@ -12,6 +12,8 @@ source:
 build:
   number: 0
   noarch: generic
+  run_exports:
+    - {{ pin_subpackage(name, max_pin="x") }}
   script: |
     mkdir -p $PREFIX/share/{{ name }} $PREFIX/bin
     cp -r ViPTreeGen ViPTreeGen.rake script $PREFIX/share/{{ name }}/
